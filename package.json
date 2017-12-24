@@ -4,17 +4,33 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "setupFiles": ["./testSetup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/enzyme": "^3.1.6",
+    "@types/jest": "^21.1.9",
     "@types/react": "^16.0.31",
     "@types/react-dom": "^16.0.3",
     "@types/react-hot-loader": "^3.0.5",
     "autoprefixer": "^7.2.3",
     "awesome-typescript-loader": "^3.4.1",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.0",
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.0.4",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",
     "prettier": "1.9.2",
@@ -24,6 +40,7 @@
     "stylelint-config-sass-guidelines": "^4.0.1",
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0",
+    "ts-jest": "^22.0.0",
     "tslint": "^5.8.0",
     "tslint-config-prettier": "^1.6.0",
     "typescript": "^2.6.2",
