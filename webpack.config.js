@@ -1,8 +1,9 @@
 const path = require("path");
+const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: ["react-hot-loader/patch", "./src/index.tsx"],
   output: {
     filename: "build.js",
     path: path.resolve(__dirname, "build")
@@ -21,12 +22,15 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: "index.html"
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     compress: true,
     historyApiFallback: true,
     host: "0.0.0.0",
+    hot: true,
     port: 3000
   }
 };
