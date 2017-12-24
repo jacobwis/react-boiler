@@ -4,6 +4,7 @@ import { AppState } from './reducers';
 import {
   onIncrement,
   onDecrement,
+  doubleIncrement,
   CounterAction
 } from './actions/counterActions';
 
@@ -11,6 +12,7 @@ interface Props {
   count: number;
   onIncrement: () => void;
   onDecrement: () => void;
+  doubleIncrement: () => void;
 }
 
 const App: React.StatelessComponent<Props> = props => (
@@ -19,6 +21,7 @@ const App: React.StatelessComponent<Props> = props => (
     <div>
       <button onClick={props.onDecrement}>-</button>
       <button onClick={props.onIncrement}>+</button>
+      <button onClick={props.doubleIncrement}>++</button>
     </div>
   </div>
 );
@@ -33,6 +36,9 @@ const mapDispatchToProps = (dispatch: Dispatch<CounterAction>) => ({
   },
   onDecrement: () => {
     dispatch(onDecrement());
+  },
+  doubleIncrement: () => {
+    dispatch(doubleIncrement());
   }
 });
 

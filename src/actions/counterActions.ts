@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux';
 import { TypeKeys } from '../constants';
 
 interface OnIncrement {
@@ -17,3 +18,10 @@ export const onIncrement = (): OnIncrement => ({
 export const onDecrement = (): OnDecrement => ({
   type: TypeKeys.ON_DECREMENT
 });
+
+export const doubleIncrement = () => {
+  return (dispatch: Dispatch<CounterAction>) => {
+    dispatch(onIncrement());
+    dispatch(onIncrement());
+  };
+};
