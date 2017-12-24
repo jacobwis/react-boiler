@@ -1,0 +1,4 @@
+export enum TypeKeys {
+  ON_INCREMENT = 'ON_INCREMENT',
+  ON_DECREMENT = 'ON_DECREMENT'
+}
